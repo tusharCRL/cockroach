@@ -38,7 +38,7 @@ var (
 		"server.goroutine_dump.num_goroutines_threshold",
 		"a threshold beyond which if number of goroutines increases, "+
 			"then goroutine dump can be triggered",
-		1000,
+		1000000,
 	)
 	totalDumpSizeLimit = settings.RegisterByteSizeSetting(
 		settings.ApplicationLevel,

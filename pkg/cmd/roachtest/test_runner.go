@@ -16,7 +16,6 @@ import (
 	"fmt"
 	"html"
 	"io"
-	"math/rand"
 	"net"
 	"net/http"
 	"os"
@@ -666,13 +665,13 @@ func (r *testRunner) runWorker(
 
 		//  TODO(babusrithar): remove this once we see enough data in
 		//  nightly runs. This is a temp logic to test spot VMs.
-		if roachtestflags.Cloud == spec.GCE &&
-			testToRun.spec.Benchmark &&
-			!testToRun.spec.Suites.Contains(registry.Weekly) &&
-			rand.Float64() <= 0.5 {
-			l.PrintfCtx(ctx, "using spot VMs to run test %s", testToRun.spec.Name)
-			testToRun.spec.Cluster.UseSpotVMs = true
-		}
+		//if roachtestflags.Cloud == spec.GCE &&
+		//	testToRun.spec.Benchmark &&
+		//	!testToRun.spec.Suites.Contains(registry.Weekly) &&
+		//	rand.Float64() <= 0.5 {
+		//	l.PrintfCtx(ctx, "using spot VMs to run test %s", testToRun.spec.Name)
+		//	testToRun.spec.Cluster.UseSpotVMs = true
+		//}
 
 		if roachtestflags.UseSpotVM {
 			testToRun.spec.Cluster.UseSpotVMs = true
